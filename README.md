@@ -1,8 +1,6 @@
-# Quasar
+![Quasar](img.png)
 
-A full-stack web application that extracts, previews, and downloads images from any webpage URL. Paste a URL, let the headless browser render the full page, and select the images you want to save.
 
----
 
 ## Features
 
