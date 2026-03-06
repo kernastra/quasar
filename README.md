@@ -36,6 +36,8 @@
 Quasar/
 ├── server.py          # Flask backend — extraction, SSE stream, image proxy
 ├── requirements.txt   # Python dependencies
+├── Dockerfile
+├── docker-compose.yml
 └── public/
     ├── index.html     # App shell and markup
     ├── style.css      # All styles (dark theme, responsive)
@@ -46,13 +48,6 @@ Quasar/
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.9+
-- pip
-
-### Installation
-
 **1. Clone the repository**
 
 ```bash
@@ -60,25 +55,56 @@ git clone https://github.com/kernastra/Quasar.git
 cd Quasar
 ```
 
-**2. Install Python dependencies**
+---
+
+### Docker (recommended)
+
+**Prerequisites:** [Docker](https://docs.docker.com/get-docker/)
+
+**Using Docker Compose**
+
+```bash
+docker compose up --build
+```
+
+The app will be available at [http://localhost:3000](http://localhost:3000).
+
+To run on a different port:
+
+```bash
+PORT=8080 docker compose up --build
+```
+
+**Using Docker directly**
+
+```bash
+docker build -t quasar .
+docker run -p 3000:3000 quasar
+```
+
+---
+
+### Manual Setup
+
+**Prerequisites:** Python 3.9+, pip
+
+**Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-**3. Install the Playwright browser**
+**Install the Playwright browser**
 
 ```bash
-python -m playwright install chromium
+python -m playwright install --with-deps chromium
 ```
 
-**4. Start the server**
+**Start the server**
 
 ```bash
 python server.py
 ```
-
-**5. Open the app**
 
 Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
